@@ -55,13 +55,27 @@ body {
 }
 .wrapper {
   margin: auto auto;
-  max-width: 1000px;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .stopwatch,
 .add-stopwatch-box {
   margin: 22px 25px;
+}
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    width: 825px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    width: 550px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 275px;
+  }
 }
 </style>
