@@ -2,7 +2,7 @@
   <div id="app">
     <div class="outter-wrapper">
       <div class="wrapper">
-        <stopwatch v-for="item in $store.state.stopwatches" :key="item" :id="item.id" />
+        <stopwatch v-for="item in $store.state.stopwatches" :key="item.id" :id="item.id" />
         <add-stopwatch-box @click="addStopwatch" />
       </div>
     </div>
