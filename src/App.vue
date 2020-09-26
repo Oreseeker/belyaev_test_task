@@ -1,28 +1,54 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="wrapper">
+      <stopwatch v-for="item in numberOfStopwatches" :key="item" />
+      <add-stopwatch-box @click="addPlayer" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Stopwatch from "./components/Stopwatch.vue";
+import AddStopwatchBox from "./components/AddStopwatchBox.vue";
 export default {
   name: "App",
   components: {
-    HelloWorld
+    Stopwatch,
+    AddStopwatchBox
+  },
+  data() {
+    return {
+      numberOfStopwatches: 1
+    };
+  },
+  methods: {
+    addPlayer() {
+      this.numberOfStopwatches++;
+    }
   }
 };
 </script>
 
 <style>
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("./assets/fonts/gotham_pro.ttf");
+}
+body {
+  margin: 0;
+  background-color:
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+}
+.wrapper {
+  margin: 0 auto;
+  width: 1000px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.stopwatch, .add-stopwatch-box {
+  margin: 22px 25px;
 }
 </style>
