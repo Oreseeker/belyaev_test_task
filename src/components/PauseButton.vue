@@ -29,6 +29,7 @@ export default {
   flex-flow: row nowrap;
   justify-content: center;
   cursor: pointer;
+  width: 20px;
 }
 .stick {
   border-left: 3px solid;

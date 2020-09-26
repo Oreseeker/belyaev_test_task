@@ -1,11 +1,9 @@
 <template>
-  <div class="play-button">
-    <div
-      class="inner-layer"
-      :style="{ 'background-color': color }"
-      @click="$emit('click')"
-    ></div>
-  </div>
+  <div
+    class="play-button"
+    :style="{ 'border-color': 'transparent transparent transparent ' + color }"
+    @click="$emit('click')"
+  ></div>
 </template>
 
 <script>
@@ -23,12 +21,9 @@ export default {
 .play-button {
   width: 20px;
   height: 17px;
-  overflow: hidden;
-}
-.inner-layer {
-  transform: rotate(-135deg) translateX(-50%);
-  width: 26px;
-  height: 26px;
   cursor: pointer;
+  border-style: solid;
+  border-width: 8px 0 8px 20px;
+  box-sizing: border-box;
 }
 </style>
