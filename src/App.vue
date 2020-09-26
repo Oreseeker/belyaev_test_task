@@ -2,8 +2,8 @@
   <div id="app">
     <div class="outter-wrapper">
       <div class="wrapper">
-        <stopwatch v-for="item in numberOfStopwatches" :key="item" />
-        <add-stopwatch-box @click="addPlayer" />
+        <stopwatch v-for="item in $store.state.stopwatches" :key="item" :id="item.id" />
+        <add-stopwatch-box @click="addStopwatch" />
       </div>
     </div>
   </div>
@@ -24,8 +24,12 @@ export default {
     };
   },
   methods: {
-    addPlayer() {
+    addStopwatch() {
       this.numberOfStopwatches++;
+      this.$store.dispatch("addStopwatch", {
+        id: this.numberOfStopwatches,
+        colorTheme: "#9e9e9e"
+      });
     }
   }
 };
@@ -51,7 +55,7 @@ body {
 }
 .wrapper {
   margin: auto auto;
-  width: 1000px;
+  max-width: 1000px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;

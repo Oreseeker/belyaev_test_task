@@ -1,21 +1,25 @@
 <template>
-  <div class="timer">
-      <slot></slot>
-      </div>
+  <div class="timer" :style="{ 'color': color }">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
-
-}
+    props: {
+        color: {
+            type: String,
+            required: true
+        }
+    }
+};
 </script>
 
 <style scoped>
 .timer {
-    font-family: "Gotham Pro";
-    font-weight: 400;
-    font-size: 22px;
-    text-align: center;
-    color: #9E9E9E;
+  font-family: "Gotham Pro";
+  font-weight: 400;
+  font-size: 22px;
+  text-align: center;
 }
 </style>

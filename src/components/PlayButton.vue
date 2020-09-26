@@ -1,25 +1,34 @@
 <template>
-  <div class="play-button" @click="$emit('click')">
-      <div class="inner-layer"></div>  
+  <div class="play-button">
+    <div
+      class="inner-layer"
+      :style="{ 'background-color': color }"
+      @click="$emit('click')"
+    ></div>
   </div>
 </template>
 
 <script>
 export default {
-
-}
+  props: {
+    color: {
+      type: String,
+      required: true
+    }
+  }
+};
 </script>
 
 <style scoped>
 .play-button {
-    width: 20px;
-    height: 17px;
-    overflow: hidden;
+  width: 20px;
+  height: 17px;
+  overflow: hidden;
 }
 .inner-layer {
-    background-color: #9E9E9E;
-    transform: rotate(-135deg) translateX(-50%);
-    width: 26px;
-    height: 26px;
+  transform: rotate(-135deg) translateX(-50%);
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
 }
 </style>

@@ -1,13 +1,20 @@
 <template>
-  <div class="horizontal-separator"></div>
+  <div class="horizontal-separator" :style="{ 'border-color': color }"></div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    color: {
+      type: String,
+      required: true
+    }
+  }
+};
 </script>
 
 <style scoped>
 .horizontal-separator {
-  border: 1px solid #9e9e9e;
+  border: 1px solid;
 }
 </style>
