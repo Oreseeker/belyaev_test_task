@@ -1,6 +1,6 @@
 <template>
   <div class="stopwatch">
-    <substrate :classes="{ 'stopwatch-main': true }">
+    <substrate :classes="{ 'stopwatch-main': true, 'white-text': status === 'started' }">
       <div class="stopwatch__timer-block">
         <timer>{{ timeElapsed() }} </timer>
       </div>
@@ -59,7 +59,15 @@ export default {
       let hours = Math.floor(this.time/60**2);
       let minutes = Math.floor((this.time - hours*60**2)/60);
       let seconds = (this.time - hours*60**2 - minutes*60)
-      return  hours +  ":" + minutes + ":" + seconds;
+      if (hours === 0 && minutes == 0) {
+        return seconds;
+      }
+      else if ( hours === 0 && minutes !==0) {
+        return  minutes + ":" + seconds;
+      }
+      else {
+        return  hours +  ":" + minutes + ":" + seconds;
+      }
     }
   },
   computed: {
@@ -92,5 +100,8 @@ export default {
 }
 .play-button {
   margin-right: 52px;
+}
+.white-text {
+  color: white;
 }
 </style>
